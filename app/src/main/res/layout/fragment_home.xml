@@ -4,19 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.controls.DashboardFragment">
 
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:text="Tasks"
+        android:textAlignment="gravity"
+        android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/roundedbutton"
+        android:contentDescription="Add a task"
+        android:src="@drawable/ic_baseline_add_24"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="38dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Go to Tasks/Home"
+        android:src="@drawable/ic_baseline_format_list_bulleted_24"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="636dp"
+        android:background="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="33dp"
+        android:background="#FFFFFF"
+        android:contentDescription="Go to Settings"
+        android:src="@drawable/ic_baseline_settings_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="636dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
