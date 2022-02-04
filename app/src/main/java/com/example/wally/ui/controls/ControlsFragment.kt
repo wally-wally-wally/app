@@ -21,21 +21,15 @@ class ControlsFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         controlsViewModel =
-                ViewModelProvider(this).get(ControlsViewModel::class.java)
+            ViewModelProvider(this).get(ControlsViewModel::class.java)
 
         _binding = FragmentControlsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textConstrolss
-        controlsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

@@ -8,7 +8,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/armDownButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton_lighter"
@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="246dp" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/armUpButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton_lighter"
@@ -28,7 +28,7 @@
         tools:layout_editor_absoluteY="30dp" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/gripperRightButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton_lighter"
@@ -38,7 +38,7 @@
         tools:layout_editor_absoluteY="140dp" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/gripperLeftButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton_lighter"
@@ -48,7 +48,7 @@
         tools:layout_editor_absoluteY="140dp" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/armForwardButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton"
@@ -58,7 +58,7 @@
         tools:layout_editor_absoluteY="527dp" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/armBackwardButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton"
@@ -68,7 +68,7 @@
         tools:layout_editor_absoluteY="527dp" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/armDpad"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/roundedbutton_focus"
@@ -79,29 +79,29 @@
         tools:layout_editor_absoluteY="156dp" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/returnCheckpointButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="35dp"
         android:background="@drawable/roundedbutton_red"
-        android:contentDescription="Return buttom"
+        android:contentDescription="Return button"
         android:src="@drawable/ic_baseline_arrow_return_24"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="758dp" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/registerCheckpointButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="35dp"
         android:background="@drawable/roundedbutton_green"
-        android:contentDescription="Register buttom"
+        android:contentDescription="Register button"
         android:src="@drawable/ic_baseline_check_24"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="758dp" />
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/returnCheckpointText"
         android:layout_width="96dp"
         android:layout_height="31dp"
         android:text="Return"
@@ -112,7 +112,7 @@
         tools:layout_editor_absoluteY="758dp" />
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/registerCheckpointText"
         android:layout_width="96dp"
         android:layout_height="31dp"
         android:text="Register"

@@ -8,7 +8,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/backwardButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton_lighter"
@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="246dp" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/forwardButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton_lighter"
@@ -28,7 +28,7 @@
         tools:layout_editor_absoluteY="30dp" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/rightButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton_lighter"
@@ -38,7 +38,7 @@
         tools:layout_editor_absoluteY="140dp" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/leftButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton_lighter"
@@ -48,7 +48,7 @@
         tools:layout_editor_absoluteY="140dp" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/rotateLeftButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton"
@@ -59,7 +59,7 @@
         tools:layout_editor_absoluteY="395dp" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/rotateRightButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:background="@drawable/roundedbutton"
@@ -70,7 +70,7 @@
         tools:layout_editor_absoluteY="387dp" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/dpad"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="#FFFFFF"
@@ -80,7 +80,7 @@
         tools:layout_editor_absoluteY="165dp" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/checkpointButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/roundedbutton_red"
@@ -90,18 +90,18 @@
         tools:layout_editor_absoluteY="30dp" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/cancelTaskButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="35dp"
         android:background="@drawable/roundedbutton_red"
-        android:contentDescription="Cancel buttom"
+        android:contentDescription="Cancel button"
         android:src="@drawable/ic_baseline_arrow_return_24"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="758dp" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/confirmTaskButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="35dp"
@@ -112,7 +112,7 @@
         tools:layout_editor_absoluteY="758dp" />
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/cancelTaskText"
         android:layout_width="96dp"
         android:layout_height="31dp"
         android:text="Cancel"
@@ -123,7 +123,7 @@
         tools:layout_editor_absoluteY="758dp" />
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/confirmTaskText"
         android:layout_width="96dp"
         android:layout_height="31dp"
         android:text="Confirm"
