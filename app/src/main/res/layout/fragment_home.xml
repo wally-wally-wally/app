@@ -7,7 +7,7 @@
     tools:context=".ui.controls.DashboardFragment">
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/tasksText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.045" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/createTaskButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/roundedbutton"
@@ -35,7 +35,7 @@
         tools:layout_editor_absoluteY="38dp" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/taskPageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription="Go to Tasks/Home"
@@ -45,7 +45,7 @@
         android:background="#FFFFFF" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/settingsPageButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="33dp"
