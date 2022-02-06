@@ -1,17 +1,20 @@
-package com.example.wally.ui.home
+package com.example.wally.ui.controls
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.wally.databinding.FragmentHomeBinding
+import com.example.wally.R
+import com.example.wally.databinding.FragmentControlsBinding
 
-class HomeFragment : Fragment() {
+class ControlsFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var controlsViewModel: ControlsViewModel
+    private var _binding: FragmentControlsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,10 +25,10 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        controlsViewModel =
+            ViewModelProvider(this).get(ControlsViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentControlsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

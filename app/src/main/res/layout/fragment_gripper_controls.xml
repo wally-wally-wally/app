@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.controls.ControlsFragment">
+
+
+    <ImageButton
+        android:id="@+id/armDownButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton_lighter"
+        android:contentDescription="Down-facing button"
+        android:src="@drawable/ic_baseline_arrow_downward_24"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <ImageButton
+        android:id="@+id/armUpButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton_lighter"
+        android:contentDescription="Up-facing button"
+        android:src="@drawable/ic_baseline_arrow_upward_24"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <ImageButton
+        android:id="@+id/gripperRightButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton_lighter"
+        android:contentDescription="Right-facing button"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <ImageButton
+        android:id="@+id/gripperLeftButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton_lighter"
+        android:contentDescription="Left-facing button"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <ImageButton
+        android:id="@+id/armForwardButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton"
+        android:contentDescription="Towards button"
+        android:src="@drawable/ic_baseline_keyboard_double_arrow_up_24"
+        tools:layout_editor_absoluteX="289dp"
+        tools:layout_editor_absoluteY="527dp" />
+
+    <ImageButton
+        android:id="@+id/armBackwardButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton"
+        android:contentDescription="Awaywards buttom"
+        android:src="@drawable/ic_baseline_keyboard_double_arrow_down_24"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="527dp" />
+
+    <ImageButton
+        android:id="@+id/armDpad"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundedbutton_focus"
+        android:contentDescription="Accessory"
+        android:rotation="45"
+        android:src="@drawable/ic_outline_front_hand_24"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="156dp" />
+
+    <ImageButton
+        android:id="@+id/returnCheckpointButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="35dp"
+        android:background="@drawable/roundedbutton_red"
+        android:contentDescription="Return button"
+        android:src="@drawable/ic_baseline_arrow_return_24"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="758dp" />
+
+    <ImageButton
+        android:id="@+id/registerCheckpointButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/roundedbutton_green"
+        android:contentDescription="Register button"
+        android:src="@drawable/ic_baseline_check_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="758dp" />
+
+    <TextView
+        android:id="@+id/returnCheckpointText"
+        android:layout_width="96dp"
+        android:layout_height="31dp"
+        android:text="Return"
+        android:textAlignment="gravity"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="758dp" />
+
+    <TextView
+        android:id="@+id/registerCheckpointText"
+        android:layout_width="96dp"
+        android:layout_height="31dp"
+        android:text="Register"
+        android:textAlignment="gravity"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="336dp"
+        tools:layout_editor_absoluteY="770dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

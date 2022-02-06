@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.controls.ControlsFragment">
+
+
+    <ImageButton
+        android:id="@+id/backwardButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton_lighter"
+        android:contentDescription="Down-facing button"
+        android:src="@drawable/ic_baseline_arrow_downward_24"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <ImageButton
+        android:id="@+id/forwardButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton_lighter"
+        android:contentDescription="Up-facing button"
+        android:src="@drawable/ic_baseline_arrow_upward_24"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <ImageButton
+        android:id="@+id/rightButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton_lighter"
+        android:contentDescription="Right-facing button"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <ImageButton
+        android:id="@+id/leftButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton_lighter"
+        android:contentDescription="Left-facing button"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <ImageButton
+        android:id="@+id/rotateLeftButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton"
+        android:contentDescription="Rotate left button"
+        android:src="@drawable/ic_baseline_rotate_left_24"
+        android:rotation="-45"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="395dp" />
+
+    <ImageButton
+        android:id="@+id/rotateRightButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/roundedbutton"
+        android:contentDescription="Rotate right"
+        android:src="@drawable/ic_baseline_rotate_right_24"
+        android:rotation="45"
+        tools:layout_editor_absoluteX="289dp"
+        tools:layout_editor_absoluteY="387dp" />
+
+    <ImageButton
+        android:id="@+id/dpad"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="#FFFFFF"
+        android:contentDescription="Accessory"
+        android:src="@drawable/ic_baseline_add_black_24"
+        tools:layout_editor_absoluteX="196dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <ImageButton
+        android:id="@+id/checkpointButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/roundedbutton_red"
+        android:contentDescription="Scan marker"
+        android:src="@drawable/ic_baseline_outlined_flag_24"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <ImageButton
+        android:id="@+id/cancelTaskButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="35dp"
+        android:background="@drawable/roundedbutton_red"
+        android:contentDescription="Cancel button"
+        android:src="@drawable/ic_baseline_arrow_return_24"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="758dp" />
+
+    <ImageButton
+        android:id="@+id/confirmTaskButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/roundedbutton_green"
+        android:contentDescription="Confirm buttom"
+        android:src="@drawable/ic_baseline_check_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="758dp" />
+
+    <TextView
+        android:id="@+id/cancelTaskText"
+        android:layout_width="96dp"
+        android:layout_height="31dp"
+        android:text="Cancel"
+        android:textAlignment="gravity"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="758dp" />
+
+    <TextView
+        android:id="@+id/confirmTaskText"
+        android:layout_width="96dp"
+        android:layout_height="31dp"
+        android:text="Confirm"
+        android:textAlignment="gravity"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="336dp"
+        tools:layout_editor_absoluteY="770dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
