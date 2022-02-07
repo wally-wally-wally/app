@@ -1,5 +1,7 @@
 package com.example.wally.ui.bluetooth
 
+import android.app.Activity
+import android.app.Application
 import android.bluetooth.BluetoothDevice
 import android.content.Intent
 import android.text.TextUtils
@@ -27,6 +29,8 @@ class BluetoothViewModel : ViewModel() {
     private var messagesData = MutableLiveData<String>()
     // The device name that the activity sees
     private var deviceNameData = MutableLiveData<String>()
+    // The message in the message box that the activity sees
+    private val messageBox = MutableLiveData<String>()
 
     // The connection status that the activity sees
     private val connectionStatusData = MutableLiveData<ConnectionStatus>()
@@ -45,17 +49,6 @@ class BluetoothViewModel : ViewModel() {
     fun refreshPairedDevices() {
         pairedDeviceList.postValue(bluetoothManager!!.pairedDevices)
     }
-
-   /* fun onPairDeviceClick(deviceName: String?, macAddress: String?) {
-        val intent = Intent(this, BluetoothFragment::class.java)
-        intent.putExtra("device_name", deviceName)
-        intent.putExtra("device_mac", macAddress)
-
-        this.deviceName = intent.getStringExtra("device_name")
-        this.mac = intent.getStringExtra("device_mac")
-
-        deviceNameData.postValue(deviceName!!)
-    }*/ //should be implemented since we need deviceName and mac
 
     fun connect() {
         // Check we are not already connecting or connected
@@ -83,10 +76,14 @@ class BluetoothViewModel : ViewModel() {
     }
 
     private fun onConnected(deviceInterface: SimpleBluetoothDeviceInterface) {
+        val intent = Intent (Activity(), com.example.wally.MainActivity::class.java)
+        this.deviceName = intent.getStringExtra("device_name")
+        this.mac = intent.getStringExtra("device_mac")
+        deviceNameData.postValue(deviceName!!)
+
         this.deviceInterface = deviceInterface
         if (this.deviceInterface != null) {
             connectionStatusData.postValue(ConnectionStatus.CONNECTED)
-            // Setup the listeners for the interface
             // Setup the listeners for the interface
             this.deviceInterface!!.setListeners(
                 object : OnMessageReceivedListener {
@@ -120,9 +117,11 @@ class BluetoothViewModel : ViewModel() {
     // Adds a sent message to the conversation
     private fun onMessageSent(message: String) {
         // Add it to the conversation
-        //messages.append(Application<Application>().getString(R.string.you_sent)).append(": ")
-         //   .append(message).append('\n')
+        messages.append(getApplication<Application>().getString(R.string.you_sent)).append(": ")
+            .append(message).append('\n')
         messagesData.postValue(messages.toString())
+        // Reset the message box
+        messageBox.postValue("")
     }
     private fun onError(error: Throwable) {
         // Handle the error
@@ -148,26 +147,30 @@ class BluetoothViewModel : ViewModel() {
         }
     }
 
-    fun closeBluetooth() {
+    override fun onCleared() {
         compositeDisposable.dispose()
         bluetoothManager!!.close()
     }
 
-    // Method for the activity to use.
-    fun getMessages(): LiveData<String?>? {
+    // Getter method for the activity to use.
+    fun getMessages(): LiveData<String> {
         return messagesData
     }
 
-    // Method for the activity to use.
-    fun getDeviceName(): LiveData<String?>? {
+    // Getter method for the activity to use.
+    val connectionStatus: LiveData<ConnectionStatus>
+        get() = connectionStatusData
+
+    // Getter method for the activity to use.
+    fun getDeviceName(): LiveData<String> {
         return deviceNameData
     }
 
-    // Method for the activity to use.
-    fun getConnectionStatus(): LiveData<ConnectionStatus?>? {
-        return connectionStatusData
-    }
+    // Getter method for the activity to use.
+    val message: LiveData<String>
+        get() = messageBox
 
+    // An enum that is passed to the activity to indicate the current connection status
     enum class ConnectionStatus {
         DISCONNECTED, CONNECTING, CONNECTED
     }

@@ -1,6 +1,5 @@
 package com.example.wally.ui.bluetooth
 
-import android.bluetooth.BluetoothDevice
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +28,7 @@ class BluetoothFragment : Fragment() {
         _binding = FragmentBluetoothBinding.inflate(inflater, container, false)
 
         bluetoothViewModel.setupBluetooth()
-        //bluetoothViewModel.refreshPairedDevices() //maybe? depends on how we're doing things in the app
+        //bluetoothViewModel.refreshPairedDevices() //maybe? perhaps list all paired devices in bluetoothview?
 
         return binding.root
     }
