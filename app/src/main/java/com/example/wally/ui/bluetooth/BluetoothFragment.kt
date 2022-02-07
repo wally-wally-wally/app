@@ -12,9 +12,6 @@ import com.example.wally.databinding.FragmentBluetoothBinding
 class BluetoothFragment : Fragment() {
     private lateinit var bluetoothViewModel: BluetoothViewModel
     private var _binding: FragmentBluetoothBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
