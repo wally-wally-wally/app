@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.controls.ControlsFragment">
 
-
     <ImageButton
         android:id="@+id/backwardButton"
         android:layout_width="96dp"
