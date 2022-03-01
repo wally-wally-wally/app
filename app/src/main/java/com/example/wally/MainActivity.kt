@@ -1,5 +1,6 @@
 package com.example.wally
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.wally.databinding.ActivityMainBinding
+import com.example.wally.ui.bluetooth.BluetoothFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,5 +30,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    // Called when clicking on a device entry to start the BluetoothFragment
+    fun openBluetoothFragment(deviceName: String?, macAddress: String?) {
+        val intent = Intent(this, BluetoothFragment::class.java)
+        intent.putExtra("device_name", deviceName)
+        intent.putExtra("device_mac", macAddress)
+        startActivity(intent)
     }
 }
