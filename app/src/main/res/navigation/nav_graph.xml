@@ -11,7 +11,6 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.wally.ui.settings.SettingsFragment"
