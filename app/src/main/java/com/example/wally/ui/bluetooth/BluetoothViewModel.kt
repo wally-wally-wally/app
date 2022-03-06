@@ -186,4 +186,14 @@ class BluetoothViewModel : ViewModel() {
     enum class ConnectionStatus {
         DISCONNECTED, CONNECTING, CONNECTED
     }
+
+    enum class AppCommands {
+        FORWARD,
+        BACKWARD,
+        LEFT,
+        RIGHT,
+        ROTATE_LEFT,
+        ROTATE_RIGHT,
+        STOP
+    }
 }
