@@ -13,4 +13,8 @@
     <string name="name">Name:</string>
     <string name="return_prompt">Return</string>
     <string name="checkpoint_register">Register Checkpoint?</string>
+    <string name="title_bluetooth">Connect to Bluetooth</string>
+    <string name="connected_device">Connected device:</string>
+    <string name="paired_devices">Paired devices:</string>
+    <string name="no_bluetooth">Bluetooth not available.</string>
 </resources>

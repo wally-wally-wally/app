@@ -105,7 +105,7 @@
         android:layout_height="40dp"
         android:layout_marginEnd="35dp"
         android:background="@drawable/roundedbutton_green"
-        android:contentDescription="Confirm buttom"
+        android:contentDescription="Confirm button"
         android:src="@drawable/ic_baseline_check_24"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="758dp" />
@@ -131,6 +131,5 @@
         android:textStyle="bold"
         tools:layout_editor_absoluteX="336dp"
         tools:layout_editor_absoluteY="770dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
