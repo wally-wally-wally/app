@@ -68,10 +68,9 @@ class MainActivity : AppCompatActivity(), CreateTaskDialogFragment.CreateTaskDia
     }
 
     override fun onRecordClick(dialog: CreateTaskDialogFragment) {
-        findNavController(R.id.nav_host_fragment).navigate(R.id.recordTaskAction)
     }
 
     override fun onConfirmClick(dialog: CreateTaskDialogFragment) {
-        bluetoothViewModel.sendMessage(BluetoothViewModel.AppCommands.CONFIRM_TASK.ordinal.toString())
+        bluetoothViewModel.sendMessage(BluetoothViewModel.AppCommands.END_RECORDING.ordinal.toString())
     }
 }

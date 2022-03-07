@@ -34,6 +34,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         binding?.createTaskButton?.setOnClickListener {
+            bluetoothViewModel.sendMessage(BluetoothViewModel.AppCommands.START_RECORDING.ordinal.toString())
             showTaskCreateDialog()
         }
 

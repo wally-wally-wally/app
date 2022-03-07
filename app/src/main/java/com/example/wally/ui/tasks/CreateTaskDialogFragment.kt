@@ -1,18 +1,21 @@
 package com.example.wally.ui.tasks
 
-import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.wally.R
 import com.example.wally.databinding.TaskCreationModalBinding
+import com.example.wally.ui.bluetooth.BluetoothViewModel
 
 class CreateTaskDialogFragment : DialogFragment() {
     private lateinit var listener: CreateTaskDialogListener
+    private val bluetoothViewModel: BluetoothViewModel by activityViewModels()
 
     private var _binding: TaskCreationModalBinding? = null
 
@@ -34,7 +37,12 @@ class CreateTaskDialogFragment : DialogFragment() {
         _binding = TaskCreationModalBinding.inflate(inflater, container, false)
 
         binding.recordButton.setOnClickListener {
-            listener.onRecordClick(this)
+            if (binding.nameInput.text.isNotEmpty()) {
+                bluetoothViewModel.sendMessage(binding.nameInput.text.toString())
+                findNavController().navigate(R.id.recordTaskAction)
+            } else {
+                Toast.makeText(context, "Enter a task name", Toast.LENGTH_LONG).show()
+            }
         }
 
         binding.confirmButton.setOnClickListener {

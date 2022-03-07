@@ -130,17 +130,14 @@ class BluetoothViewModel : ViewModel() {
             this.deviceInterface!!.setListeners(
                 object : OnMessageReceivedListener {
                     override fun onMessageReceived(message: String) {
-                        onMessageReceived(message)
                     }
                 },
                 object : OnMessageSentListener {
                     override fun onMessageSent(message: String) {
-                        onMessageSent(message)
                     }
                 },
                 object : OnErrorListener {
                     override fun onError(error: Throwable) {
-                        statusMessage.value = "Error sending message"
                     }
                 })
             statusMessage.value = "Connected"
@@ -148,17 +145,6 @@ class BluetoothViewModel : ViewModel() {
             statusMessage.value = "Connection failed"
             connectionStatusData.postValue(ConnectionStatus.DISCONNECTED)
         }
-    }
-
-    private fun onMessageReceived(message: String) {
-    }
-
-    // Adds a sent message to the conversation
-    private fun onMessageSent(message: String) {
-        // Reset the message box
-    }
-    private fun onError(error: Throwable) {
-        // Handle the error
     }
 
     fun sendMessage(message: String?) {
@@ -198,9 +184,18 @@ class BluetoothViewModel : ViewModel() {
         STOP,
 
         // Arm controls
+        ADD_CHECKPOINT,
+        ARM_UP,
+        ARM_DOWN,
+        ARM_LEFT,
+        ARM_RIGHT,
+        ARM_FORWARD,
+        ARM_BACKWARD,
+        SET_CHECKPOINT,
 
         // Task controls
-        CREATE_TASK,
-        CONFIRM_TASK
+        START_RECORDING, // send task name after
+        END_RECORDING,
+        RUN_TASK  // send task name after
     }
 }

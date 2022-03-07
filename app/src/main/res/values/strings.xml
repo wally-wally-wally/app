@@ -30,4 +30,6 @@
     <string name="right_facing_button">Right-facing button</string>
     <string name="up_facing_button">Up-facing button</string>
     <string name="down_facing_button">Down-facing button</string>
+    <string name="rotate_left_button">Rotate left button</string>
+    <string name="rotate_right">Rotate right</string>
 </resources>
