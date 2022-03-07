@@ -1,6 +1,35 @@
 <resources>
     <string name="app_name">Wally</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_gripper_controls">Gripper Controls</string>
+    <string name="title_controls">Controls</string>
+    <string name="title_settings">Settings</string>
+    <string name="create_task">Create New Task</string>
+    <string name="task_placeholder">Tap to select...</string>
+    <string name="route">Route:</string>
+    <string name="record">Record</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="name">Name:</string>
+    <string name="return_prompt">Return</string>
+    <string name="checkpoint_register">Register Checkpoint?</string>
+    <string name="title_bluetooth">Connect to Bluetooth</string>
+    <string name="connected_device">Connected device:</string>
+    <string name="paired_devices">Paired devices:</string>
+    <string name="no_bluetooth">Bluetooth not available.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancel_button">Cancel button</string>
+    <string name="confirm_button">Confirm button</string>
+    <string name="scan_marker">Scan marker</string>
+    <string name="register">Register</string>
+    <string name="cancel_arm">Return</string>
+    <string name="towards_button">Towards button</string>
+    <string name="awaywards_button">Awaywards button</string>
+    <string name="left_facing_button">Left-facing button</string>
+    <string name="right_facing_button">Right-facing button</string>
+    <string name="up_facing_button">Up-facing button</string>
+    <string name="down_facing_button">Down-facing button</string>
+    <string name="rotate_left_button">Rotate left button</string>
+    <string name="rotate_right">Rotate right</string>
 </resources>

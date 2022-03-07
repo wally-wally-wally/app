@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Preference
+        app:key="bluetooth"
+        app:title="Bluetooth"
+        app:summary="Connect to Wally"
+        app:fragment="com.example.wally.ui.bluetooth.BluetoothFragment" />
+
+    <Preference
+        app:key="drive_control"
+        app:title="Drive Control"
+        app:summary="Move Wally"
+        app:fragment="com.example.wally.ui.controls.ControlsFragment" />
+
+    <Preference
+        app:key="arm_control"
+        app:title="Arm Control"
+        app:summary="Move Wally's Arm"
+        app:fragment="com.example.wally.ui.gripper_controls.GripperControlsFragment" />
+</androidx.preference.PreferenceScreen>
