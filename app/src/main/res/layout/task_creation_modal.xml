@@ -1,62 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:background="#FF0057"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/btnClose"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="48dp"
-        android:background="@drawable/roundedbutton"
-        android:contentDescription="Close modal"
-        android:src="@drawable/ic_baseline_close_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/btnClose"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="48dp"-->
+<!--        android:layout_marginEnd="48dp"-->
+<!--        android:background="@drawable/roundedbutton"-->
+<!--        android:contentDescription="Close modal"-->
+<!--        android:src="@drawable/ic_baseline_close_24"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/create_task"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/view"
-        app:layout_constraintTop_toTopOf="@id/view" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
 
     <TextView
         android:id="@+id/name_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
-        android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/view"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/text_input"
+        android:id="@+id/name_input"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/task_placeholder"
         android:inputType="text"
-        app:layout_constraintStart_toStartOf="@id/view"
-        app:layout_constraintTop_toBottomOf="@+id/name_title" />
+        android:hint="Task Name"/>
 
     <TextView
         android:id="@+id/route_title"
@@ -64,34 +49,50 @@
         android:layout_height="wrap_content"
         android:text="@string/route"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/view"
-        app:layout_constraintTop_toBottomOf="@id/text_input" />
+        android:textSize="20sp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnRecord"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/record_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:backgroundTint="#FF0057"
         android:text="@string/record"
         android:textStyle="bold"
-        app:cornerRadius="20dp"
-        app:layout_constraintTop_toBottomOf="@id/route_title"
-        app:layout_constraintStart_toStartOf="@id/view" />
+        app:cornerRadius="4dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnConfirm"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:backgroundTint="#FF0057"
-        android:text="@string/confirm"
-        android:textStyle="bold"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="12dp"
+        android:gravity="right">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+        <LinearLayout
+            android:id="@+id/confirm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:id="@+id/confirmTaskText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="Confirm"
+                android:textAlignment="gravity"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/confirmImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/roundedbutton_green"
+                android:src="@drawable/ic_baseline_check_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

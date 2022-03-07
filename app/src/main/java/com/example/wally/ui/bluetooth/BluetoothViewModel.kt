@@ -188,12 +188,19 @@ class BluetoothViewModel : ViewModel() {
     }
 
     enum class AppCommands {
+        // Drive controls
         FORWARD,
         BACKWARD,
         LEFT,
         RIGHT,
         ROTATE_LEFT,
         ROTATE_RIGHT,
-        STOP
+        STOP,
+
+        // Arm controls
+
+        // Task controls
+        CREATE_TASK,
+        CONFIRM_TASK
     }
 }

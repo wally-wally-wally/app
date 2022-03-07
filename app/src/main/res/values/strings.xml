@@ -17,4 +17,17 @@
     <string name="connected_device">Connected device:</string>
     <string name="paired_devices">Paired devices:</string>
     <string name="no_bluetooth">Bluetooth not available.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancel_button">Cancel button</string>
+    <string name="confirm_button">Confirm button</string>
+    <string name="scan_marker">Scan marker</string>
+    <string name="register">Register</string>
+    <string name="cancel_arm">Return</string>
+    <string name="towards_button">Towards button</string>
+    <string name="awaywards_button">Awaywards button</string>
+    <string name="left_facing_button">Left-facing button</string>
+    <string name="right_facing_button">Right-facing button</string>
+    <string name="up_facing_button">Up-facing button</string>
+    <string name="down_facing_button">Down-facing button</string>
 </resources>

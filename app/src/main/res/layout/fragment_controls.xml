@@ -6,25 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.controls.ControlsFragment">
 
-    <ImageButton
-        android:id="@+id/checkpointButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="30dp"
-        android:background="@drawable/roundedbutton_red"
-        android:contentDescription="Scan marker"
-        android:src="@drawable/ic_baseline_outlined_flag_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/forwardButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/roundedbutton_lighter"
         android:contentDescription="Up-facing button"
         android:src="@drawable/ic_baseline_arrow_upward_24"
-        app:layout_constraintTop_toBottomOf="@id/checkpointButton"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
@@ -79,11 +70,12 @@
         android:layout_height="96dp"
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="30dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/roundedbutton"
         android:contentDescription="Rotate left button"
         android:rotation="-45"
         android:src="@drawable/ic_baseline_rotate_left_24"
-        app:layout_constraintBottom_toTopOf="@id/cancelTaskButton"
+        app:layout_constraintTop_toBottomOf="@id/backwardButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -92,73 +84,12 @@
         android:layout_height="96dp"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="30dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/roundedbutton"
         android:contentDescription="Rotate right"
         android:rotation="45"
         android:src="@drawable/ic_baseline_rotate_right_24"
-        app:layout_constraintBottom_toTopOf="@id/confirmTaskButton"
+        app:layout_constraintTop_toBottomOf="@id/backwardButton"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/cancelTaskButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:clickable="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/cancelTaskImage"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/roundedbutton_red"
-            android:contentDescription="Cancel button"
-            android:src="@drawable/ic_baseline_arrow_return_24" />
-
-        <TextView
-            android:id="@+id/cancelTaskText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="Cancel"
-            android:textAlignment="gravity"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/confirmTaskButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:clickable="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/confirmTaskText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="Confirm"
-            android:textAlignment="gravity"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/confirmImage"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/roundedbutton_green"
-            android:contentDescription="Cancel button"
-            android:src="@drawable/ic_baseline_check_24" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

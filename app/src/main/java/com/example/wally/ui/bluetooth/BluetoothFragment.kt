@@ -30,17 +30,11 @@ class BluetoothFragment : Fragment() {
     ): View? {
         _binding = FragmentBluetoothBinding.inflate(inflater, container, false)
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         // Setup our Views
-        val connectedDeviceName = view.findViewById<TextView>(R.id.connected_device_name)
-        val connectedDeviceMac = view.findViewById<TextView>(R.id.connected_device_mac)
-        val deviceList = view.findViewById<RecyclerView>(R.id.bluetooth_devices)
-        val swipeRefreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.devices_swipe_refresh)
+        val connectedDeviceName = binding.connectedDeviceName
+        val connectedDeviceMac = binding.connectedDeviceMac
+        val deviceList = binding.bluetoothDevices
+        val swipeRefreshLayout = binding.devicesSwipeRefresh
 
         // Setup the RecyclerView
         deviceList.layoutManager = LinearLayoutManager(context)
@@ -71,6 +65,8 @@ class BluetoothFragment : Fragment() {
 
         // Immediately refresh the paired devices list
         bluetoothViewModel.refreshPairedDevices()
+
+        return binding.root
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageButton
+        android:id="@+id/checkpointButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/roundedbutton_red"
+        android:contentDescription="@string/scan_marker"
+        android:src="@drawable/ic_baseline_outlined_flag_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/gripperButton"-->
+    <!--        android:layout_width="40dp"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_margin="30dp"-->
+    <!--        android:background="@drawable/roundedbutton_focus"-->
+    <!--        android:contentDescription="Use gripper"-->
+    <!--        android:src="@drawable/ic_outline_swipe_vertical_24"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        android:visibility="invisible"/>-->
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/movementButton"-->
+    <!--        android:layout_width="40dp"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_margin="30dp"-->
+    <!--        android:background="@drawable/roundedbutton_focus"-->
+    <!--        android:contentDescription="Use movement controls"-->
+    <!--        android:src="@drawable/ic_outline_open_with_24"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        android:visibility="invisible"/>-->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/controlsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/checkpointButton"
+        app:layout_constraintBottom_toTopOf="@id/cancelTaskButton"
+        android:name="com.example.wally.ui.controls.ControlsFragment" />
+
+    <LinearLayout
+        android:id="@+id/cancelTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/cancelTaskImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/roundedbutton_red"
+            android:contentDescription="@string/cancel_button"
+            android:src="@drawable/ic_baseline_arrow_return_24" />
+
+        <TextView
+            android:id="@+id/cancelTaskText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/cancel"
+            android:textAlignment="gravity"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/confirmTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/confirmTaskText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="@string/confirm"
+            android:textAlignment="gravity"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/confirmImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/roundedbutton_green"
+            android:contentDescription="@string/confirm_button"
+            android:src="@drawable/ic_baseline_check_24" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

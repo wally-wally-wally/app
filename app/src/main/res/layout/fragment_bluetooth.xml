@@ -42,9 +42,7 @@
             android:id="@+id/connected_device_mac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/bluetooth_item_name"
             android:layout_marginBottom="8dp"
-            android:layout_alignStart="@id/bluetooth_item_name"
             android:textAppearance="?android:attr/textAppearanceListItemSecondary" />
 
         <TextView
