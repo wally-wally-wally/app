@@ -10,10 +10,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.wally.R
 import com.example.wally.databinding.FragmentRecordTaskDriveBinding
 import com.example.wally.ui.bluetooth.BluetoothViewModel
+import com.example.wally.ui.home.HomeViewModel
 
 
 class RecordTaskDriveFragment : Fragment() {
     private val bluetoothViewModel: BluetoothViewModel by activityViewModels()
+    private val homeViewModel: HomeViewModel by activityViewModels()
 
     private var _binding: FragmentRecordTaskDriveBinding? = null
 
@@ -34,7 +36,9 @@ class RecordTaskDriveFragment : Fragment() {
         }
 
         binding.confirmTaskButton.setOnClickListener {
-            bluetoothViewModel.sendMessage(BluetoothViewModel.AppCommands.END_RECORDING.ordinal.toString())
+            bluetoothViewModel.sendCommand(BluetoothViewModel.AppCommand.END_RECORDING)
+            homeViewModel.addTask(homeViewModel.currentTaskName!!)
+            homeViewModel.currentTaskName = null
             navController.navigate(R.id.confirmTaskRecordingAction)
         }
 

@@ -1,13 +1,7 @@
 package com.example.wally.ui.bluetooth
 
-import android.app.Activity
-import android.app.Application
 import android.bluetooth.BluetoothDevice
-import android.content.Intent
-import android.os.Build
 import android.text.TextUtils
-import android.widget.Toast
-import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,7 +25,10 @@ class BluetoothViewModel : ViewModel() {
 
     // The device name that the activity sees
     val deviceNameData = MutableLiveData<String>()
+
     val statusMessage = MutableLiveData<String?>(null)
+    val lastMessage = MutableLiveData<String?>(null)
+    var lastCommand: AppCommand? = null
 
     // The connection status that the activity sees
     private val connectionStatusData = MutableLiveData<ConnectionStatus>()
@@ -99,6 +96,8 @@ class BluetoothViewModel : ViewModel() {
                         connectionAttemptedOrMade = false
                         connectionStatusData.postValue(ConnectionStatus.DISCONNECTED)
                         statusMessage.value = "Connection failed"
+                        deviceName = null
+                        mac = null
                     })
             // Remember that we made a connection attempt.
             connectionAttemptedOrMade = true
@@ -115,6 +114,9 @@ class BluetoothViewModel : ViewModel() {
             bluetoothManager!!.closeDevice(deviceInterface!!)
             // Set it to null so no one tries to use it
             deviceInterface = null
+            deviceName = null
+            mac = null
+            deviceNameData.postValue("")
             // Tell the activity we are disconnected
             connectionStatusData.postValue(ConnectionStatus.DISCONNECTED)
         }
@@ -130,6 +132,7 @@ class BluetoothViewModel : ViewModel() {
             this.deviceInterface!!.setListeners(
                 object : OnMessageReceivedListener {
                     override fun onMessageReceived(message: String) {
+                        lastMessage.value = message
                     }
                 },
                 object : OnMessageSentListener {
@@ -144,7 +147,14 @@ class BluetoothViewModel : ViewModel() {
         } else {
             statusMessage.value = "Connection failed"
             connectionStatusData.postValue(ConnectionStatus.DISCONNECTED)
+            deviceName = null
+            mac = null
         }
+    }
+
+    fun sendCommand(command: AppCommand) {
+        lastCommand = command
+        sendMessage(command.ordinal.toString())
     }
 
     fun sendMessage(message: String?) {
@@ -173,7 +183,7 @@ class BluetoothViewModel : ViewModel() {
         DISCONNECTED, CONNECTING, CONNECTED
     }
 
-    enum class AppCommands {
+    enum class AppCommand {
         // Drive controls
         FORWARD,
         BACKWARD,
@@ -196,6 +206,7 @@ class BluetoothViewModel : ViewModel() {
         // Task controls
         START_RECORDING, // send task name after
         END_RECORDING,
-        RUN_TASK  // send task name after
+        RUN_TASK,  // send task name after
+        LIST_TASKS
     }
 }

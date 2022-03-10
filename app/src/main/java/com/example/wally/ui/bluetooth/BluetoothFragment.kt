@@ -47,6 +47,10 @@ class BluetoothFragment : Fragment() {
             swipeRefreshLayout.isRefreshing = false
         }
 
+        binding.connectedDevice.setOnClickListener {
+            bluetoothViewModel.disconnect()
+        }
+
         bluetoothViewModel.deviceNameData.observe(
             viewLifecycleOwner
         ) {
@@ -76,7 +80,7 @@ class BluetoothFragment : Fragment() {
 
 
     // A class to hold the data in the RecyclerView
-    private inner class DeviceViewHolder internal constructor(view: View) :
+    private inner class DeviceViewHolder constructor(view: View) :
         RecyclerView.ViewHolder(view) {
         private val layout: RelativeLayout = view.findViewById(R.id.bluetooth_item)
         private val deviceName: TextView = view.findViewById(R.id.bluetooth_item_name)
@@ -115,9 +119,5 @@ class BluetoothFragment : Fragment() {
             this.deviceList = deviceList.toTypedArray()
             notifyDataSetChanged()
         }
-    }
-
-    enum class ConnectionStatus {
-        DISCONNECTED, CONNECTING, CONNECTED
     }
 }
