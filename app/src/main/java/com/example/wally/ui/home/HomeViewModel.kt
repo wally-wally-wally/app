@@ -1,13 +1,17 @@
 package com.example.wally.ui.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
+    val taskList = MutableLiveData<List<String>>()
+    var currentTaskName: String? = null
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    fun setTasks(tasks: List<String>) {
+        taskList.value = tasks
     }
-    val text: LiveData<String> = _text
+
+    fun addTask(task: String) {
+        taskList.value = taskList.value.orEmpty() + task
+    }
 }

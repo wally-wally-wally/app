@@ -12,17 +12,18 @@ import androidx.navigation.fragment.findNavController
 import com.example.wally.R
 import com.example.wally.databinding.TaskCreationModalBinding
 import com.example.wally.ui.bluetooth.BluetoothViewModel
+import com.example.wally.ui.home.HomeViewModel
 
 class CreateTaskDialogFragment : DialogFragment() {
     private lateinit var listener: CreateTaskDialogListener
     private val bluetoothViewModel: BluetoothViewModel by activityViewModels()
+    private val homeViewModel: HomeViewModel by activityViewModels()
 
     private var _binding: TaskCreationModalBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -38,15 +39,13 @@ class CreateTaskDialogFragment : DialogFragment() {
 
         binding.recordButton.setOnClickListener {
             if (binding.nameInput.text.isNotEmpty()) {
-                bluetoothViewModel.sendMessage(binding.nameInput.text.toString())
+                homeViewModel.currentTaskName = binding.nameInput.text.toString()
+                bluetoothViewModel.sendMessage(
+                    "${BluetoothViewModel.AppCommand.START_RECORDING.ordinal},${homeViewModel.currentTaskName}")
                 findNavController().navigate(R.id.recordTaskAction)
             } else {
                 Toast.makeText(context, "Enter a task name", Toast.LENGTH_LONG).show()
             }
-        }
-
-        binding.confirmButton.setOnClickListener {
-            listener.onConfirmClick(this)
         }
 
         return binding.root
@@ -55,10 +54,6 @@ class CreateTaskDialogFragment : DialogFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        const val TAG = "CreateTaskDialog"
     }
 
     interface CreateTaskDialogListener {

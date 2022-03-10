@@ -31,19 +31,34 @@
             android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginRight="@dimen/text_margin" />
 
-        <TextView
-            android:id="@+id/connected_device_name"
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/connectedDevice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textAppearance="?android:attr/textAppearanceListItem" />
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground" >
 
-        <TextView
-            android:id="@+id/connected_device_mac"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:textAppearance="?android:attr/textAppearanceListItemSecondary" />
+            <TextView
+                android:id="@+id/connected_device_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <TextView
+                android:id="@+id/connected_device_mac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_below="@id/connected_device_name"
+                android:layout_alignStart="@id/connected_device_name"
+                android:textAppearance="?android:attr/textAppearanceListItemSecondary" />
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"

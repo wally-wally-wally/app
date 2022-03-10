@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.wally.databinding.FragmentControlsBinding
 import com.example.wally.ui.bluetooth.BluetoothViewModel
-import com.example.wally.ui.bluetooth.BluetoothViewModel.AppCommands
+import com.example.wally.ui.bluetooth.BluetoothViewModel.AppCommand
 
 class ControlsFragment : Fragment() {
     private val bluetoothViewModel: BluetoothViewModel by activityViewModels()
@@ -31,12 +31,12 @@ class ControlsFragment : Fragment() {
 
         _binding = FragmentControlsBinding.inflate(inflater, container, false)
 
-        binding.forwardButton.setOnTouchListener(onTouchListener(AppCommands.FORWARD))
-        binding.backwardButton.setOnTouchListener(onTouchListener(AppCommands.BACKWARD))
-        binding.leftButton.setOnTouchListener(onTouchListener(AppCommands.LEFT))
-        binding.rightButton.setOnTouchListener(onTouchListener(AppCommands.RIGHT))
-        binding.rotateLeftButton.setOnTouchListener(onTouchListener(AppCommands.ROTATE_LEFT))
-        binding.rotateRightButton.setOnTouchListener(onTouchListener(AppCommands.ROTATE_RIGHT))
+        binding.forwardButton.setOnTouchListener(onTouchListener(AppCommand.FORWARD))
+        binding.backwardButton.setOnTouchListener(onTouchListener(AppCommand.BACKWARD))
+        binding.leftButton.setOnTouchListener(onTouchListener(AppCommand.LEFT))
+        binding.rightButton.setOnTouchListener(onTouchListener(AppCommand.RIGHT))
+        binding.rotateLeftButton.setOnTouchListener(onTouchListener(AppCommand.ROTATE_LEFT))
+        binding.rotateRightButton.setOnTouchListener(onTouchListener(AppCommand.ROTATE_RIGHT))
 
         return binding.root
     }
@@ -46,16 +46,16 @@ class ControlsFragment : Fragment() {
         _binding = null
     }
 
-    private fun onTouchListener(command: AppCommands) = { view: View, motionEvent: MotionEvent ->
+    private fun onTouchListener(command: AppCommand) = { view: View, motionEvent: MotionEvent ->
         when (motionEvent.action) {
             MotionEvent.ACTION_DOWN -> {
                 view.isPressed = true
-                bluetoothViewModel.sendMessage(command.ordinal.toString())
+                bluetoothViewModel.sendCommand(command)
                 true
             }
             MotionEvent.ACTION_UP -> {
                 view.isPressed = false
-                bluetoothViewModel.sendMessage(AppCommands.STOP.ordinal.toString())
+                bluetoothViewModel.sendCommand(AppCommand.STOP)
                 true
             }
             else -> false

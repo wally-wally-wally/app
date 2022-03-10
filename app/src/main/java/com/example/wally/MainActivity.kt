@@ -6,21 +6,20 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts.RequestMultiplePermissions
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.wally.databinding.ActivityMainBinding
 import com.example.wally.ui.bluetooth.BluetoothViewModel
+import com.example.wally.ui.home.HomeViewModel
 import com.example.wally.ui.tasks.CreateTaskDialogFragment
-import com.example.wally.ui.tasks.TaskCreationViewModel
 
 class MainActivity : AppCompatActivity(), CreateTaskDialogFragment.CreateTaskDialogListener {
     private lateinit var binding: ActivityMainBinding
 
     private val bluetoothViewModel: BluetoothViewModel by viewModels()
-    private val taskCreationViewModel: TaskCreationViewModel by viewModels()
+    private val homeViewModel: HomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,10 +58,26 @@ class MainActivity : AppCompatActivity(), CreateTaskDialogFragment.CreateTaskDia
             Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_CONNECT
         ))
 
+        bluetoothViewModel.connectionStatus.observe(this) { status ->
+            if (status == BluetoothViewModel.ConnectionStatus.CONNECTED) {
+                bluetoothViewModel.sendCommand(BluetoothViewModel.AppCommand.LIST_TASKS)
+            }
+        }
+
         bluetoothViewModel.statusMessage.observe(this) { message ->
             message?.let {
                 bluetoothViewModel.statusMessage.value = null
                 Toast.makeText(application, message, Toast.LENGTH_LONG).show()
+            }
+        }
+
+        bluetoothViewModel.lastMessage.observe(this) { message ->
+            message?.let {
+                bluetoothViewModel.lastMessage.value = null
+
+                when (bluetoothViewModel.lastCommand) {
+                    BluetoothViewModel.AppCommand.LIST_TASKS -> homeViewModel.setTasks(message.split(","))
+                }
             }
         }
     }
@@ -71,6 +86,5 @@ class MainActivity : AppCompatActivity(), CreateTaskDialogFragment.CreateTaskDia
     }
 
     override fun onConfirmClick(dialog: CreateTaskDialogFragment) {
-        bluetoothViewModel.sendMessage(BluetoothViewModel.AppCommands.END_RECORDING.ordinal.toString())
     }
 }
