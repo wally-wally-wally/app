@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.wally.R
 import com.example.wally.databinding.FragmentBluetoothBinding
 
@@ -53,9 +52,27 @@ class BluetoothFragment : Fragment() {
 
         bluetoothViewModel.deviceNameData.observe(
             viewLifecycleOwner
-        ) {
-            connectedDeviceName.text = bluetoothViewModel.deviceName
+        ) { deviceName ->
+            connectedDeviceName.text = deviceName
             connectedDeviceMac.text = bluetoothViewModel.mac
+
+            if (deviceName.isNullOrEmpty()) {
+                binding.batteryIcon.visibility = View.INVISIBLE
+            } else {
+                binding.batteryIcon.setImageResource(R.drawable.ic_battery_90_bluetooth)
+                binding.batteryIcon.visibility = View.VISIBLE
+            }
+        }
+
+        bluetoothViewModel.isBatteryLow.observe(
+            viewLifecycleOwner
+        ) { isLow ->
+            if (isLow) {
+                binding.batteryIcon.setImageResource(R.drawable.ic_battery_10_bluetooth)
+                Toast.makeText(context, "Battery low", Toast.LENGTH_LONG).show()
+            } else {
+                binding.batteryIcon.setImageResource(R.drawable.ic_battery_90_bluetooth)
+            }
         }
 
         // Start observing the data sent to us by the ViewModel

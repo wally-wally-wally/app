@@ -25,10 +25,11 @@ class BluetoothViewModel : ViewModel() {
 
     // The device name that the activity sees
     val deviceNameData = MutableLiveData<String>()
+    val isBatteryLow = MutableLiveData<Boolean>(false)
 
     val statusMessage = MutableLiveData<String?>(null)
     val lastMessage = MutableLiveData<String?>(null)
-    var lastCommand: AppCommand? = null
+    val lastCommand = MutableLiveData<AppCommand?>(null)
 
     // The connection status that the activity sees
     private val connectionStatusData = MutableLiveData<ConnectionStatus>()
@@ -153,7 +154,7 @@ class BluetoothViewModel : ViewModel() {
     }
 
     fun sendCommand(command: AppCommand) {
-        lastCommand = command
+        lastCommand.value = command
         sendMessage(command.ordinal.toString())
     }
 
@@ -176,6 +177,10 @@ class BluetoothViewModel : ViewModel() {
     // Getter method for the activity to use.
     fun getDeviceName(): LiveData<String> {
         return deviceNameData
+    }
+
+    fun setIsBatteryLow(isLow: Boolean) {
+        isBatteryLow.value = isLow
     }
 
     // An enum that is passed to the activity to indicate the current connection status
@@ -207,6 +212,12 @@ class BluetoothViewModel : ViewModel() {
         START_RECORDING, // send task name after
         END_RECORDING,
         RUN_TASK,  // send task name after
-        LIST_TASKS
+        LIST_TASKS,
+
+        TOGGLE_GRIPPER
+    }
+
+    enum class FirmwareCommand {
+        BATTERY_LOW
     }
 }
