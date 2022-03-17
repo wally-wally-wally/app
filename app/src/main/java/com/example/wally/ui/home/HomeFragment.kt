@@ -53,6 +53,13 @@ class HomeFragment : Fragment() {
             adapter.updateList(taskList)
         }
 
+        val swipeRefreshLayout = binding.tasksSwipeRefresh;
+
+        swipeRefreshLayout.setOnRefreshListener {
+            bluetoothViewModel.sendCommand(BluetoothViewModel.AppCommand.LIST_TASKS)
+            swipeRefreshLayout.isRefreshing = false
+        }
+
         return binding.root
     }
 

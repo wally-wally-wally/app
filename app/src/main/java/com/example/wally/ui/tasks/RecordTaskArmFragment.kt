@@ -29,11 +29,8 @@ class RecordTaskArmFragment : Fragment() {
         _binding = FragmentRecordTaskArmBinding.inflate(inflater, container, false)
         val navController = findNavController()
 
-        binding.cancelArmButton.setOnClickListener {
-            navController.navigate(R.id.confirmArmAction)
-        }
-
         binding.confirmArmButton.setOnClickListener {
+            bluetoothViewModel.sendCommand(BluetoothViewModel.AppCommand.SET_CHECKPOINT)
             navController.navigate(R.id.confirmArmAction)
         }
 

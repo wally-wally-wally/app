@@ -14,12 +14,14 @@ import com.example.wally.databinding.ActivityMainBinding
 import com.example.wally.ui.bluetooth.BluetoothViewModel
 import com.example.wally.ui.home.HomeViewModel
 import com.example.wally.ui.tasks.CreateTaskDialogFragment
+import com.example.wally.ui.tasks.RecordTaskViewModel
 
 class MainActivity : AppCompatActivity(), CreateTaskDialogFragment.CreateTaskDialogListener {
     private lateinit var binding: ActivityMainBinding
 
     private val bluetoothViewModel: BluetoothViewModel by viewModels()
     private val homeViewModel: HomeViewModel by viewModels()
+    private val recordTaskViewModel: RecordTaskViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,10 +75,19 @@ class MainActivity : AppCompatActivity(), CreateTaskDialogFragment.CreateTaskDia
 
         bluetoothViewModel.lastMessage.observe(this) { message ->
             message?.let {
+                val lastCommand = bluetoothViewModel.lastCommand.value
                 bluetoothViewModel.lastMessage.value = null
+                bluetoothViewModel.lastCommand.value = null
 
-                when (bluetoothViewModel.lastCommand) {
+                when (lastCommand) {
                     BluetoothViewModel.AppCommand.LIST_TASKS -> homeViewModel.setTasks(message.split(","))
+                    BluetoothViewModel.AppCommand.ADD_CHECKPOINT -> recordTaskViewModel.setArucoFound(message)
+                    else -> {
+                        when (message) {
+                            BluetoothViewModel.FirmwareCommand.BATTERY_LOW.ordinal.toString() ->
+                                bluetoothViewModel.setIsBatteryLow(true)
+                        }
+                    }
                 }
             }
         }
